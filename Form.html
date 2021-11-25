@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>Registration Form</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+table{
+border-collapse: collapse;
+table-layout: fixed ;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+
+}
+th, td {
+  text-align: left;
+width:100px;
+
+border:1px solid;
+}
+</style>
+<body>
+<h1 style="text-align:center;">Registration Form</h1>
+<br>
+<hr width=50%>
+<br>
+
+<div style=" display: flex;justify-content: center;align-items: center; " id="forms">
+
+<div>
+<label for="fname"> First Name :</label>
+<input type="text" id="fname" name="fname" value=""  placeholder="Enter ur First-name" required>
+<span class="valdity" style="float:right"></span>
+<br>
+<br>
+<label for="lname">Last Name :</label>
+<input type="text" id="lname" name="lname value="" placeholder="Enter ur Last-name" required>
+<span class="valdity" style="float:right"></span>
+<br>
+<br>
+<label for="phone" style="margin-left:-10%">Phone number :</label>
+<input type="tel" id="phone" name="phone"  value="" placeholder="123-456-7890"  maxlength="12" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  >
+<span class="valdity" style="float:right"></span>
+<br>
+<br>
+
+<label for="mail" style="margin-left:15%">Email :</label>
+<input type="email" id="mail" name="mail" value="" placeholder="me@hotmail.com" max-length="30" required >
+<span class="valdity" style="float:right"></span>
+<br>
+<br>
+<button  onclick="form_submit(); cancel();" id="submit" >submit</button>
+<br/>
+</div>
+
+</div>
+<div>
+
+</div>
+<br/>
+<br/>
+<br/>
+<table id="form_result" width="1000px">
+<tr>
+<th  width="250px">First Name</th>
+<th  width="250px">Last Name </th>
+<th  width="250px">Phone number</th>
+<th  width="250px">Email</th>
+</tr>
+
+</table>
+<div id="youtube" >
+<iframe width="300" height="150" src="https://www.youtube.com/embed/dkrO6TF_rJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div> <h2>For any queries refer....!</h2></div>
+</div>
+<div id="footer">
+<h2 style="text-align:center;font-family:garamond;">Follow me on</h2>
+<div id="icons">
+<a href="https://www.instagram.com/?hl=en" style="margin-left:3%;"><i class="fa fa-instagram" style="font-size:36px;"></i></a>
+<a href="https://www.facebook.com/" style="margin-left:3%;"><i class="fa fa-facebook-f" style="font-size:36px;"></i></a>
+<a href="https://linked.in/" style="margin-left:3%;"><i class="fa fa-linkedin" style="font-size:36px;"></i></a>
+</div>
+</div>
+
+</body>
+<script>
+ var row;
+ var data;
+function form_submit(){
+x=document.getElementById("fname").value;
+x1=document.getElementById("lname").value;
+x2=document.getElementById("phone").value;
+x3=document.getElementById("mail").value;
+if(x=="" && x1=="" && x2=="" && x3=="")
+{
+alert("please fill the details");
+}
+else
+{
+alert("your name is "+x +"\n"+"your lastname is "+x1+"\n"+"your phone number is "+x2+"\n"+"your mail is "+x3 );
+//console.log(x+"\n"+x1+"\n"+x2+"\n"+x3);
+printvalue();
+
+}
+}
+function printvalue(){
+ data={
+"name1":document.getElementById("fname").value,
+"lname1":document.getElementById("lname").value,
+"phone1":document.getElementById("phone").value,
+"email1":document.getElementById("mail").value
+}
+console.log(data);
+ createtablerow();
+  
+
+}
+function createtablerow() {
+
+ table = document.getElementById('form_result');    
+ var columnCount = table.rows[0].cells.length;
+ row = table.insertRow(-1);
+
+var cell1 = row.insertCell(-1);
+var cell2 = row.insertCell(-1);
+var cell3 = row.insertCell(-1);
+var cell4 = row.insertCell(-1);
+
+
+
+cell1.innerHTML=data.name1;
+cell2.innerHTML=data.lname1;
+cell3.innerHTML=data.phone1;
+cell4.innerHTML=data.email1;
+table.appendChild(row);
+
+
+}
+function cancel()
+{
+document.getElementById("fname").value="";
+document.getElementById("lname").value="";
+document.getElementById("phone").value="";
+document.getElementById("mail").value="";
+}
+
+
+
+
+
+
+</script>
+</html>
